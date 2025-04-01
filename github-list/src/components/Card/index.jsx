@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
 import styles from './Card.module.css'
-export function Card({ username, description, image }) {
+export function Card({ username, description, image, route }) {
   return (
-    <Link to={`/profile/${username}`}>
+    <a href={route}>
       <div className={styles.card}>
         <div className={styles.details}>
           <img src={image} alt="" />
@@ -15,6 +14,6 @@ export function Card({ username, description, image }) {
           arrow_right
         </span>
       </div>
-    </Link>
+    </a>
   )
 }
