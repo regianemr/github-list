@@ -7,7 +7,7 @@ import styles from './Home.module.css'
 
 export function Home(){
   const [user, setUser] = useState("")
-  const [listUser, setListUser] = useState('')
+  const [listUser, setListUser] = useState()
   const handleSearch= async () => {
     await axios
       .get(`https://api.github.com/users/${user}`)
@@ -32,6 +32,7 @@ export function Home(){
           image={listUser.avatar_url} 
           username={listUser.login} 
           description={listUser.bio}
+          route={`/profile/${listUser.login}`}
         />
       )}
     </div>

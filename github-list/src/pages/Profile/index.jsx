@@ -6,15 +6,24 @@ import styles from './Profile.module.css'
 
 export function Profile(){
   const { user } = useParams()
-  const [listUser, setListUser] = useState('')
-  
+  const [listUser, setListUser] = useState({})
+  const [repos, setRepos] = useState([])
+
   useEffect(()=> {
     const data = async () => {
       await axios
         .get(`https://api.github.com/users/${user}`)
-        .then((response) => {
+        .then(async(response) => {
           console.log(response)
           setListUser(response.data)
+
+          await axios
+            .get(`https://api.github.com/users/${user}/repos`)
+            .then((res) => {
+              console.log(res)
+              setRepos(res.data)
+            })
+            .catch((e) => console.log(e))
         })
         .catch((e) => console.log(e))
     }
@@ -23,7 +32,7 @@ export function Profile(){
   return(
     <>
       <div className={styles.details}>
-        <img src={''} alt="" />
+        <img src={listUser.avatar_url} alt="" />
         <div className={styles.user}>
           <div className={styles.details_user}>
             <div className={styles.followers_details}>
@@ -40,13 +49,23 @@ export function Profile(){
             </div>
           </div>
           <div className={styles.username_details}>
-            <h3>username</h3>
-            <p>description</p>
+            <h3>{listUser.name}</h3>
+            <p>{listUser.bio}</p>
           </div>
         </div>
       </div>
       <div>
-        <Card />
+        {repos && repos.map((repo) => {
+          return(
+            <Card 
+              username={repo.full_name} 
+              description={repo.description} 
+              image={listUser.avatar_url}
+              route={repo.html_url}  
+            />
+          )
+
+        })}
       </div>
     </>
   )
