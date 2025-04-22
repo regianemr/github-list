@@ -10,9 +10,6 @@ export function Card({ username, description, image, route }) {
             <p>{description}</p>
           </div>
         </div>
-        <span class="material-symbols-outlined">
-          arrow_right
-        </span>
       </div>
     </a>
   )

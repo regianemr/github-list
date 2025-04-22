@@ -1,24 +1,91 @@
-.title {
+.container {
   display: flex;
-  margin: 2rem;
   justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.camada {
+  height: 225px;
+  margin-left: -1050px;
+  margin-top: 20px;
+  position: absolute;
+  width: 239px;
+  z-index: 1;
+}
+
+.ellipse1 {
+  margin-left: 1350px;
+  position: absolute;
+  z-index: 1;
+}
+
+.ellipse2 {
+  height: 747px;
+  margin-left: -1550px;
+  margin-top: 250px;
+  position: absolute;
+  width: 674px;
+  z-index: 1;
+}
+
+.box {
+  align-items: center;
+  background-color: #0c0c0c;
+  display: flex;
+  flex-direction: column;
+  height: 537px;
+  margin-top: 100px;
+  position: absolute;
+  width: 1156px;
+  z-index: 2;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  height: 82px;
+  margin: 2rem;
+  white-space: nowrap; 
+  width: 384px;
+}
+
+.title h1 {
+  color: #fff;
+  font-family: 'Nunito Sans';
+  font-size: 60px;
+  line-height: 100%;
+  margin-left: 5px;
+}
+
+.title h1 span {
+  font-weight: 900;
 }
 
 .search {
-  width: 100%;
+  align-items: center;
+  color: #fff;
   display: flex;
+  height: 62px;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .search input {
-  width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  color: #000;
+  font-size: 20px;
+  height: 62px;
+  margin-left: 80px;
+  outline: none;
   padding: 10px 20px;
-  border-radius: 4px 0 0 4px;
-  border: 1px solid #ccc;
+  width: 500px;
 }
 
-.search input:hover {
-  border-color: #1ca819;
+.search input::placeholder {
+  color: #000;
 }
 
 .search input:focus-visible {
@@ -26,10 +93,28 @@
 }
 
 .search button {
-  width: 20%;
-  border: none;
-  background-color: #1ca819;
+  background-color: #005CFF;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   color: white;
   cursor: pointer;
-  border-radius: 0 4px 4px 0;
+  height: 62px;
+  transform: translateX(-100%);
+  width: 62px;
+}
+
+.error {
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  color: #ff0000;
+  display: flex;
+  font-family: 'Nunito Sans';
+  font-size: 20px;
+  font-weight: 400;
+  height: 88px;
+  justify-content: center;
+  line-height: 100%;
+  text-align: center;
+  width: 710px;
 }

@@ -1,21 +1,20 @@
 .details_user {
   display: flex;
-  /* justify-content: space-between; */
   width: 100%;
 }
 
 .details {
+  align-items: center;
   display: flex;
   margin: 2rem 0 4rem 0;
   width: 100%;
-  align-items: center;
 }
 
 .details img {
   border-radius: 50%;
-  width: 150px;
   height: 150px;
   margin-right: 4rem;
+  width: 150px;
 }
 
 .user {
